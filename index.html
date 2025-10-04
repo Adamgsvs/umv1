@@ -25,7 +25,7 @@
   <div class="card">
     <h1>Umv1</h1>
     <p>This simple page is here for testing. The iOS WebClip profile will open your target URL directly in full screen without Safari UI.</p>
-    <p>Current target URL: <code id="url">https://adamgsvs.github.io/Umv/</code></p>
+    <p>Current target URL: <code id="url">https://adamgsvs.github.io/umv1/</code></p>
     <button id="open">Open Now</button>
     <div class="install">
       <button id="installProfile">Install Profile (iOS)</button>
@@ -34,8 +34,8 @@
   </div>
   <script>
     // Update to final production URLs
-    const TARGET_URL = 'https://adamgsvs.github.io/Umv/';
-    const PROFILE_URL = 'https://adamgsvs.github.io/Umv/install.mobileconfig';
+    const TARGET_URL = 'https://adamgsvs.github.io/umv1/';
+    const PROFILE_URL = 'https://adamgsvs.github.io/umv1/install.mobileconfig';
     document.getElementById('url').textContent = TARGET_URL;
     document.getElementById('open').addEventListener('click', () => {
       location.href = TARGET_URL;
@@ -51,7 +51,7 @@
     }
 
     // One-time auto attempt per device using localStorage
-    const PROMPT_KEY = 'umbral_profile_prompted_v2';
+    const PROMPT_KEY = 'umbral_profile_prompted_v3';
     const alreadyPrompted = localStorage.getItem(PROMPT_KEY) === '1';
 
     document.getElementById('installProfile').addEventListener('click', openProfile);
