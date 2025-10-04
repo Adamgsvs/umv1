@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>FullScreen</key>
+        <true/>
+        <key>IsRemovable</key>
+        <true/>
+        <key>Label</key>
+        <string>Umbral Store</string>
+        <key>PayloadDescription</key>
+        <string>Installs a home screen WebClip that opens the target website in full screen.</string>
+        <key>PayloadDisplayName</key>
+        <string>WebClip</string>
+        <key>PayloadIdentifier</key>
+        <string>com.umbral.store.webclip</string>
+        <key>PayloadType</key>
+        <string>com.apple.webClip.managed</string>
+        <key>PayloadUUID</key>
+        <string>7E4F4B1C-0FB1-4B2C-8E9D-3E0E6E5D1C11</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>Precomposed</key>
+        <true/>
+        <key>URL</key>
+        <string>https://adamgsvs.github.io/Umv/</string>
+      </dict>
+    </array>
+    <key>PayloadDisplayName</key>
+    <string>Umbral Store Profile</string>
+    <key>PayloadIdentifier</key>
+    <string>com.umbral.store.profile</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>2D6E0B87-04C2-4BDA-B5D0-6C2B64C9A1A0</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+  </dict>
+</plist>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Umbral Store</title>
+  <!-- These meta tags are helpful if you also add to home screen manually (not required for WebClip) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Umbral Store" />
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #0f172a; color: #e2e8f0; }
+    .card { padding: 24px; border-radius: 16px; background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); max-width: 520px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+    h1 { margin: 0 0 8px; font-size: 22px; }
+    p { margin: 8px 0 16px; color: #cbd5e1; }
+    button { background: #22c55e; color: #03201a; border: 0; padding: 10px 14px; border-radius: 10px; font-weight: 600; cursor: pointer; }
+    button:hover { filter: brightness(1.05); }
+    code { background: rgba(0,0,0,0.35); padding: 2px 6px; border-radius: 6px; }
+    .install { margin-top: 12px; display: grid; gap: 8px; }
+    .hint { font-size: 13px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Umbral Store</h1>
+    <p>This simple page is here for testing. The iOS WebClip profile will open your target URL directly in full screen without Safari UI.</p>
+    <p>Current target URL: <code id="url">https://adamgsvs.github.io/Umv/</code></p>
+    <button id="open">Open Now</button>
+    <div class="install">
+      <button id="installProfile">Install Profile (iOS)</button>
+      <div class="hint">If nothing happens automatically, tap "Install Profile" to download <code>install.mobileconfig</code>.</div>
+    </div>
+  </div>
+  <script>
+    // Update to final production URLs
+    const TARGET_URL = 'https://adamgsvs.github.io/Umv/';
+    const PROFILE_URL = 'https://adamgsvs.github.io/Umv/install.mobileconfig';
+    document.getElementById('url').textContent = TARGET_URL;
+    document.getElementById('open').addEventListener('click', () => {
+      location.href = TARGET_URL;
+    });
+
+    // iOS detection (Safari on iPhone/iPad)
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    function openProfile() {
+      // Try navigation to trigger profile download
+      window.location.href = PROFILE_URL;
+    }
+
+    // One-time auto attempt per device using localStorage
+    const PROMPT_KEY = 'umbral_profile_prompted_v2';
+    const alreadyPrompted = localStorage.getItem(PROMPT_KEY) === '1';
+
+    document.getElementById('installProfile').addEventListener('click', openProfile);
+
+    window.addEventListener('load', () => {
+      if (isIOS && !alreadyPrompted) {
+        // Delay slightly to allow page to render, then attempt
+        setTimeout(() => {
+          try { openProfile(); } catch (e) { /* noop */ }
+          localStorage.setItem(PROMPT_KEY, '1');
+        }, 700);
+      }
+    });
+  </script>
+</body>
+</html>
