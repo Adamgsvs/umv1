@@ -10,7 +10,7 @@
         <key>IsRemovable</key>
         <true/>
         <key>Label</key>
-        <string>Umbral Store</string>
+        <string>Umv1</string>
         <key>PayloadDescription</key>
         <string>Installs a home screen WebClip that opens the target website in full screen.</string>
         <key>PayloadDisplayName</key>
@@ -30,7 +30,7 @@
       </dict>
     </array>
     <key>PayloadDisplayName</key>
-    <string>Umbral Store Profile</string>
+    <string>Umv1 Profile</string>
     <key>PayloadIdentifier</key>
     <string>com.umbral.store.profile</string>
     <key>PayloadRemovalDisallowed</key>
